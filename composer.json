@@ -25,7 +25,8 @@
     "require-dev": {
         "slevomat/coding-standard": "~4.0",
         "phpunit/phpunit": "^8",
-        "gmazzap/andrew": "^1.1"
+        "gmazzap/andrew": "^1.1",
+        "brain/monkey": "^2"
     },
     "autoload": {
         "psr-4": {
