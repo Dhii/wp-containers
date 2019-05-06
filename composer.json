@@ -19,7 +19,8 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.2.0 | ^8.0",
-        "psr/container": "^1.0"
+        "psr/container": "^1.0",
+        "dhii/data-container-interface": "dev-task/add-set-capable-container as 0.2-alpha4"
     },
     "require-dev": {
         "slevomat/coding-standard": "~4.0",
