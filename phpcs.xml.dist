@@ -1,23 +1,8 @@
 <?xml version="1.0"?>
 <ruleset name="wp-jobadder">
-    <file>./main.php</file>
     <file>./src</file>
-    <file>./includes</file>
-
-    <rule ref="vendor/consistence/coding-standard/Consistence/ruleset.xml">
-        <!-- Use 4 spaces per indent -->
-        <exclude name="Generic.WhiteSpace.DisallowSpaceIndent" />
-        <rule ref="Generic.WhiteSpace.DisallowTabIndent" />
-        <rule ref="Generic.WhiteSpace.ScopeIndent">
-            <properties>
-                <property name="indent" value="4"/>
-                <property name="tabIndent" value="false"/>
-            </properties>
-        </rule>
-
-        <!-- We can use double quotes as templates -->
-        <exclude name="Squiz.Strings.DoubleQuoteUsage.ContainsVar" />
-    </rule>
+    <file>./test/functional</file>
+    <file>./test/unit</file>
 
     <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/ruleset.xml">
         <!-- PSR-4 mapping already in Composer -->
@@ -39,5 +24,17 @@
 
         <!-- Doc can be a work in progress -->
         <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.UselessDocComment" />
+
+        <!-- Errors should not be caught -->
+        <exclude name="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly" />
+
+        <!-- No need for empty lines -->
+        <rule ref="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces">
+            <properties>
+                <property name="linesCountAfterOpeningBrace" value="0" />
+                <property name="linesCountAfterClosingBrace" value="0" />
+            </properties>
+        </rule>
     </rule>
+
 </ruleset>
