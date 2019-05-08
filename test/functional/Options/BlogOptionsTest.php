@@ -307,4 +307,65 @@ class BlogOptionsTest extends TestCase
             // No exception means failure
         }
     }
+
+    /**
+     * Tests whether subject correctly deletes an existing key.
+     *
+     * @doesNotPerformAssertions
+     *
+     * @throws Exception If problem testing.
+     */
+    public function testDelete()
+    {
+        {
+            $blogId = rand(1, 99);
+            $optionName = uniqid('option-name');
+            $subject = $this->createSubject(
+                [$blogId, uniqid('default-value')],
+                null
+            );
+            $fnDeleteBlogOption = Functions\expect('delete_blog_option')
+                ->times(1)
+                ->with($blogId, $optionName)
+                ->andReturn(true);
+        }
+
+        {
+            $subject->delete($optionName);
+        }
+
+        {
+            // No exception means success
+        }
+    }
+
+    /**
+     * Tests that the subject correctly fails when unable to delete a key.
+     *
+     * @throws Exception If problem testing.
+     */
+    public function testDeleteFailure()
+    {
+        {
+            $blogId = rand(1, 99);
+            $optionName = uniqid('option-name');
+            $subject = $this->createSubject(
+                [$blogId, uniqid('default-value')],
+                null
+            );
+            $fnDeleteBlogOption = Functions\expect('delete_blog_option')
+                ->times(1)
+                ->with($blogId, $optionName)
+                ->andReturn(false);
+        }
+
+        {
+            $this->expectException(ContainerExceptionInterface::class);
+            $subject->delete($optionName);
+        }
+
+        {
+            // Exception means success
+        }
+    }
 }

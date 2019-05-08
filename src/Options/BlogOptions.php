@@ -2,11 +2,13 @@
 
 namespace Dhii\Wp\Containers\Options;
 
-use Dhii\Data\Container\SetCapableContainerInterface;
+use Dhii\Data\Container\WritableContainerInterface;
+use Dhii\Util\String\StringableInterface as Stringable;
 use Dhii\Wp\Containers\Exception\ContainerException;
 use Dhii\Wp\Containers\Exception\NotFoundException;
 use Dhii\Wp\Containers\Util\StringTranslatingTrait;
 use Exception;
+use Psr\Container\ContainerExceptionInterface;
 use RuntimeException;
 use Throwable;
 use UnexpectedValueException;
@@ -16,7 +18,7 @@ use UnexpectedValueException;
  *
  * @package Dhii\Wp\Containers
  */
-class BlogOptions implements SetCapableContainerInterface
+class BlogOptions implements WritableContainerInterface
 {
 
     use StringTranslatingTrait;
@@ -108,6 +110,24 @@ class BlogOptions implements SetCapableContainerInterface
     }
 
     /**
+     * {@inheritDoc}
+     */
+    public function delete($key)
+    {
+        $blogId = $this->blogId;
+        $result = delete_blog_option($blogId, $key);
+
+        if ($result === false) {
+            throw new ContainerException(
+                $this->__('Could not delete option "%1$s"', [$key]),
+                0,
+                null,
+                $this
+            );
+        }
+    }
+
+    /**
      * Retrieves an option value.
      *
      * @param string $name The name of the option to retrieve.
@@ -168,5 +188,4 @@ class BlogOptions implements SetCapableContainerInterface
             );
         }
     }
-
 }
