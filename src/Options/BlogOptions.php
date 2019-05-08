@@ -59,6 +59,13 @@ class BlogOptions implements SetCapableContainerInterface
                 $this,
                 $id
             );
+        } catch (Exception $e) {
+            throw new ContainerException(
+                $this->__('Could not get value for key "%1$s', [$id]),
+                0,
+                $e,
+                $this
+            );
         }
     }
 
