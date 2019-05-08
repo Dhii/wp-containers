@@ -3,6 +3,7 @@
 namespace Dhii\Wp\Containers\Options;
 
 use Dhii\Wp\Containers\Exception\ContainerException;
+use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Dhii\Wp\Containers\Util\StringTranslatingTrait;
 use Exception;
@@ -76,6 +77,13 @@ class BlogOptionsContainer implements ContainerInterface
             $this->_getSite($id);
         } catch (NotFoundExceptionInterface $e) {
             return false;
+        } catch (Exception $e) {
+            throw new ContainerException(
+                $this->__('Could not check for option "%1$s"', [$id]),
+                0,
+                $e,
+                $this
+            );
         }
 
         return true;
