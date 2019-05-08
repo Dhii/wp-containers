@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Dhii\Wp\Containers\FuncTest;
+namespace Dhii\Wp\Containers\FuncTest\Exception;
 
 use Dhii\Wp\Containers\Exception\ContainerException as TestSubject;
 use Dhii\Wp\Containers\TestHelpers\ComponentMockeryTrait;

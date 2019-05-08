@@ -1,6 +1,6 @@
 <?php
 
-namespace Dhii\Wp\Containers\FuncTest;
+namespace Dhii\Wp\Containers\FuncTest\Options;
 
 use Dhii\Data\Container\Exception\NotFoundExceptionInterface;
 use Dhii\Wp\Containers\TestHelpers\ComponentMockeryTrait;
