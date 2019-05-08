@@ -105,6 +105,11 @@ class BlogOptionsTest extends TestCase
         }
     }
 
+    /**
+     * Provides sets of values for blog options.
+     *
+     * @return array[] The values.
+     */
     public function optionValuesProvider()
     {
         $array = $this->createArray(rand(1, 9), function (int $index) {
