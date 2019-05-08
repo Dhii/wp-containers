@@ -4,10 +4,13 @@
 namespace Dhii\Wp\Containers\TestHelpers;
 
 use Andrew\Proxy;
+use Dhii\Data\Container\Exception\NotFoundExceptionInterface;
+use Dhii\Wp\Containers\Exception\NotFoundException;
 use Exception;
 use PHPUnit\Framework\MockObject\MockBuilder;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Container\ContainerInterface;
+use Throwable;
 
 trait ComponentMockeryTrait
 {
@@ -39,6 +42,71 @@ trait ComponentMockeryTrait
 
         return $builder;
     }
+
+    /**
+     * Creates a new abstract class that extends the specified class while implementing the specified interfaces.
+     *
+     * @param string $className Name of the class to extend.
+     * @param array $interfaceNames List of interface names to implement.
+     *
+     * @return string The name of the new class.
+     *
+     * @throws Exception If problem creating.
+     * @throws Throwable If problem running.
+     */
+    protected function createImplementingClass(
+        string $className,
+        array $interfaceNames = []
+    ) {
+        $newClassName = uniqid(sprintf('%1$s_', $className));
+        $implements = count($interfaceNames)
+            ? 'implements ' . implode(', ', $interfaceNames)
+            : '';
+        $class = <<<PHP
+    abstract class $newClassName extends $className $implements {}
+PHP;
+        eval($class);
+
+        return $newClassName;
+    }
+
+    /**
+     * Creates a new Dhii Container - Not Found exception.
+     *
+     * @param string $message Error message.
+     * @param Throwable|null $previous Inner exception.
+     * @param ContainerInterface|null $container The container, if any.
+     * @param string|null $dataKey The data key, if any.
+     *
+     * @return MockObject|NotFoundExceptionInterface The new exception.
+     *
+     * @throws Exception If problem creating.
+     * @throws Throwable If problem running.
+     */
+    protected function createNotFoundException(
+        string $message,
+        ?Throwable $previous = null,
+        ?ContainerInterface $container = null,
+        ?string $dataKey = null
+    ) {
+        $eClass = $this->createImplementingClass('Exception', [NotFoundExceptionInterface::class]);
+        $e = $this->createMockBuilder(
+            $eClass,
+            ['getContainer', 'getDataKey'],
+            [
+                $message,
+                0,
+                $previous,
+            ]
+        )->getMock();
+        $e->method('getContainer')
+            ->willReturn($container);
+        $e->method('getDataKey')
+            ->willReturn($dataKey);
+
+        return $e;
+    }
+
     /**
      * @return callable|MockObject
      *
