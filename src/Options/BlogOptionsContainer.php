@@ -2,6 +2,7 @@
 
 namespace Dhii\Wp\Containers\Options;
 
+use Dhii\Data\Container\WritableContainerInterface;
 use Dhii\Wp\Containers\Exception\ContainerException;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -47,7 +48,11 @@ class BlogOptionsContainer implements ContainerInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Retrieves options for a site with the specified ID.
+     *
+     * @param int The ID of the site to retrieve options for.
+     *
+     * @return WritableContainerInterface The options.
      */
     public function get($id)
     {
@@ -109,10 +114,10 @@ class BlogOptionsContainer implements ContainerInterface
      * Creates a container that represents options for a specific site.
      *
      * @param int $siteId The ID of the site to get the options for.
-     * @return ContainerInterface The options.
+     * @return WritableContainerInterface The options.
      * @throws Exception If problem creating.
      */
-    protected function _createOptions(int $siteId): BaseContainerInterface
+    protected function _createOptions(int $siteId): WritableContainerInterface
     {
         $factory = $this->optionsFactory;
 

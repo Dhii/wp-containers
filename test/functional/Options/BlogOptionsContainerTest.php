@@ -106,7 +106,7 @@ class BlogOptionsContainerTest extends TestCase
         {
             $siteId = rand(1, 99);
             $site = $this->createWpSite($siteId);
-            $newContainer = $this->createContainer([]);
+            $newContainer = $this->createWritableContainer([]);
             $factory = $this->createCallable(function () use ($newContainer) {
                 return $newContainer;
             });
