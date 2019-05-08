@@ -80,7 +80,7 @@ class BlogOptions implements SetCapableContainerInterface
             return true;
         } catch (UnexpectedValueException $e) {
             return false;
-        } catch (Throwable $e) {
+        } catch (Exception $e) {
             throw new ContainerException(
                 $this->__('Could not check for key "%1$s"', [$id]),
                 0,
