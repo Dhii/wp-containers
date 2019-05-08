@@ -6,7 +6,8 @@ use Dhii\Wp\Containers\Exception\ContainerException;
 use Psr\Container\NotFoundExceptionInterface;
 use Dhii\Wp\Containers\Util\StringTranslatingTrait;
 use Exception;
-use Psr\Container\ContainerInterface;
+use Dhii\Data\Container\ContainerInterface;
+use Psr\Container\ContainerInterface as BaseContainerInterface;
 use Throwable;
 use WP_Site; // Counting on this being there when in WordPress
 
@@ -25,7 +26,7 @@ class BlogOptionsContainer implements ContainerInterface
      */
     protected $optionsFactory;
     /**
-     * @var ContainerInterface
+     * @var BaseContainerInterface
      */
     protected $sitesContainer;
 
@@ -33,10 +34,12 @@ class BlogOptionsContainer implements ContainerInterface
      * @param callable $optionsFactory A callable with the following signature:
      * `function (int $id): ContainerInterface`
      * Accepts a site ID, and returns a container with options for that site.
+     * @param BaseContainerInterface $sitesContainer The container of WP Site instances.
+     * Used for checking if a site exists.
      */
     public function __construct(
         callable $optionsFactory,
-        ContainerInterface $sitesContainer
+        BaseContainerInterface $sitesContainer
     ) {
         $this->optionsFactory = $optionsFactory;
         $this->sitesContainer = $sitesContainer;
@@ -101,7 +104,7 @@ class BlogOptionsContainer implements ContainerInterface
      * @return ContainerInterface The options.
      * @throws ContainerException If problem
      */
-    protected function _createOptions(int $siteId): ContainerInterface
+    protected function _createOptions(int $siteId): BaseContainerInterface
     {
         $factory = $this->optionsFactory;
 
