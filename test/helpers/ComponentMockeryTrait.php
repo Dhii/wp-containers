@@ -100,6 +100,32 @@ EOL;
     }
 
     /**
+     * Creates an array.
+     *
+     * @param int $length The length of the array.
+     * @param callable $valueGenerator This generates the values. Called for each index.
+     * @param callable|null $keyGenerator This generates the keys. Called for each index.
+     * Default: a generator that returns the index. Useful for numeric arrays.
+     *
+     * @return array The array of specified length, with generated keys and values.
+     */
+    public function createArray(int $length, callable $valueGenerator, ?callable $keyGenerator = null)
+    {
+        $result = [];
+        $keyGenerator = $keyGenerator ?? function (int $index) {
+            return $index;
+        };
+
+        for ($i=0; $i<$length-1; $i++) {
+            $key = $keyGenerator($i);
+            $value = $valueGenerator($i);
+            $result[$key] = $value;
+        }
+
+        return $result;
+    }
+
+    /**
      * Creates a proxy that allows public access to the object's protected members.
      *
      * @param object $object The object to proxy.
