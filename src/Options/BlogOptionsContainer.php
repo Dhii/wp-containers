@@ -86,7 +86,7 @@ class BlogOptionsContainer implements ContainerInterface
      *
      * @param int|string $id The ID of the site to retrieve.
      * @return WP_Site The site instance.
-     * @throws NotFoundExceptionInterface If problem retrieving.
+     * @throws NotFoundExceptionInterface If site does not exist.
      * @throws Exception If problem retrieving.
      * @throws Throwable If problem running.
      */
