@@ -102,7 +102,7 @@ class BlogOptionsContainer implements ContainerInterface
      *
      * @param int $siteId The ID of the site to get the options for.
      * @return ContainerInterface The options.
-     * @throws ContainerException If problem
+     * @throws Exception If problem creating.
      */
     protected function _createOptions(int $siteId): BaseContainerInterface
     {
