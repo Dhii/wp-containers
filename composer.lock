@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Dhii/data-container-interface.git",
-                "reference": "394353679483c34fe1526640fd301e5417f47f45"
+                "reference": "ea83f3fe05ced3ae0638bac1cb2bd259a9abbf3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Dhii/data-container-interface/zipball/394353679483c34fe1526640fd301e5417f47f45",
-                "reference": "394353679483c34fe1526640fd301e5417f47f45",
+                "url": "https://api.github.com/repos/Dhii/data-container-interface/zipball/ea83f3fe05ced3ae0638bac1cb2bd259a9abbf3f",
+                "reference": "ea83f3fe05ced3ae0638bac1cb2bd259a9abbf3f",
                 "shasum": ""
             },
             "require": {
@@ -58,7 +58,7 @@
                 }
             ],
             "description": "Interfaces for working with data containers",
-            "time": "2019-05-06T15:18:14+00:00"
+            "time": "2019-05-08T17:45:52+00:00"
         },
         {
             "name": "dhii/exception-interface",
