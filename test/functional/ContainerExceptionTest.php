@@ -5,6 +5,7 @@ namespace Dhii\Wp\Containers\FuncTest;
 use Dhii\Wp\Containers\Exception\ContainerException as TestSubject;
 use Dhii\Wp\Containers\TestHelpers\ComponentMockeryTrait;
 use Exception;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -21,6 +22,7 @@ class ContainerExceptionTest extends TestCase
      * Creates a new instance of the test subject.
      *
      * @param array $dependencies A list of constructor args.
+     * @param array|null $methods The names of methods to mock in the subject.
      * @return MockObject|TestSubject The new instance.
      * @throws Exception If problem creating.
      */
