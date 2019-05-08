@@ -156,12 +156,22 @@ EOL;
         $mock = $this->getMockBuilder(ContainerInterface::class)
             ->setMethods(['has', 'get'])
             ->getMock();
+        assert($mock instanceof ContainerInterface);
 
         $mock->method('get')
-            ->willReturnCallback(function ($key) use ($services) {
-                return isset($services[$key])
-                    ? $services[$key]
-                    : null;
+            ->willReturnCallback(function ($key) use ($services, $mock) {
+                if (!isset($services[$key])) {
+                    throw $this->createNotFoundException(
+                        sprintf('No entry found for key "%1$s"', $key),
+                        null,
+                        $mock,
+                        $key
+                    );
+
+                    throw $e;
+                }
+
+                return $services[$key];
             });
 
         return $mock;
