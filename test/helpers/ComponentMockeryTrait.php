@@ -255,5 +255,5 @@ EOL;
      *
      * @return MockBuilder The mock builder.
      */
-    abstract function getMockBuilder($className);
+    abstract function getMockBuilder($className): MockBuilder;
 }
