@@ -2,7 +2,7 @@
 
 namespace Dhii\Wp\Containers\Options;
 
-use Dhii\Data\Container\SetCapableContainerInterface;
+use Dhii\Data\Container\WritableContainerInterface;
 use Dhii\Wp\Containers\Exception\ContainerException;
 use Dhii\Wp\Containers\Exception\NotFoundException;
 use Dhii\Wp\Containers\Util\StringTranslatingTrait;
@@ -16,7 +16,7 @@ use UnexpectedValueException;
  *
  * @package Dhii\Wp\Containers\
  */
-class SiteMeta implements SetCapableContainerInterface
+class SiteMeta implements WritableContainerInterface
 {
     use StringTranslatingTrait;
 
@@ -94,6 +94,24 @@ class SiteMeta implements SetCapableContainerInterface
                 $this->__('Could not set value for meta key "%1$s"', [$key]),
                 0,
                 $e,
+                $this
+            );
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function delete($key)
+    {
+        $siteId = $this->siteId;
+        $result = delete_network_option($siteId, $key);
+
+        if ($result === false) {
+            throw new ContainerException(
+                $this->__('Could not delete meta key "%1$s"', [$key]),
+                0,
+                null,
                 $this
             );
         }
