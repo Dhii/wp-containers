@@ -24,7 +24,7 @@
     },
     "require-dev": {
         "slevomat/coding-standard": "~4.0",
-        "phpunit/phpunit": "^8",
+        "phpunit/phpunit": "^7 |^8",
         "gmazzap/andrew": "^1.1",
         "brain/monkey": "^2"
     },

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c4c9a9afe3ad3825e7fc7d6eb2b1518b",
+    "content-hash": "116d82f1c7ff839719759f5dae5a0ffa",
     "packages": [
         {
             "name": "dhii/data-container-interface",
