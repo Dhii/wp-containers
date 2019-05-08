@@ -5,7 +5,7 @@ namespace Dhii\Wp\Containers\TestHelpers;
 
 use Andrew\Proxy;
 use Dhii\Data\Container\Exception\NotFoundExceptionInterface;
-use Dhii\Wp\Containers\Exception\NotFoundException;
+use Dhii\Data\Container\WritableContainerInterface;
 use Exception;
 use PHPUnit\Framework\MockObject\MockBuilder;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -169,6 +169,39 @@ EOL;
                     );
 
                     throw $e;
+                }
+
+                return $services[$key];
+            });
+
+        return $mock;
+    }
+
+    /**
+     * Creates a new mock writable container.
+     *
+     * @param array $services The map of service name to service value.
+     *
+     * @return WritableContainerInterface|MockObject
+     *
+     * @throws Exception If problem creating.
+     */
+    protected function createWritableContainer(array $services = []): WritableContainerInterface
+    {
+        $mock = $this->getMockBuilder(WritableContainerInterface::class)
+            ->setMethods(['has', 'get', 'set', 'delete'])
+            ->getMock();
+        assert($mock instanceof WritableContainerInterface);
+
+        $mock->method('get')
+            ->willReturnCallback(function ($key) use ($services, $mock) {
+                if (!isset($services[$key])) {
+                    throw $this->createNotFoundException(
+                        sprintf('No entry found for key "%1$s"', $key),
+                        null,
+                        $mock,
+                        $key
+                    );
                 }
 
                 return $services[$key];
