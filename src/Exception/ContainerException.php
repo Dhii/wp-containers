@@ -29,8 +29,8 @@ class ContainerException extends Exception implements ContainerExceptionInterfac
     public function __construct(
         string $message = "",
         int $code = 0,
-        ?Throwable $previous = null,
-        ?ContainerInterface $container = null
+        Throwable $previous = null,
+        ContainerInterface $container = null
     ) {
         parent::__construct($message, $code, $previous);
         $this->container = $container;

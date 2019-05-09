@@ -166,7 +166,7 @@ class BlogOptions implements WritableContainerInterface
      * @throws RuntimeException If problem setting.
      * @throws Throwable If problem running.
      */
-    protected function _setOption(string $name, $value): void
+    protected function _setOption(string $name, $value)
     {
         $blogId = $this->blogId;
 

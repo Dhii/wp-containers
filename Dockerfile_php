@@ -1,7 +1,8 @@
-FROM php:7.2.0
+FROM php:7.0.0
 
 VOLUME /opt/project
 
+RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
 RUN apt-get update
 
 RUN apt-get install -y git
@@ -11,8 +12,7 @@ RUN apt-get install -y \
     libzip-dev \
     zip \
     && docker-php-ext-configure zip --with-libzip \
-    && docker-php-ext-install \
-    zip
+    && docker-php-ext-install zip mbstring
 
 RUN curl -sS https://getcomposer.org/installer | php \
         && mv composer.phar /usr/local/bin/ \

@@ -17,13 +17,13 @@ class SitesTest extends TestCase
 
     use ComponentMockeryTrait;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         parent::setUp();
         setUp();
     }
 
-    protected function tearDown(): void
+    protected function tearDown()
     {
         parent::tearDown();
         tearDown();
@@ -34,7 +34,7 @@ class SitesTest extends TestCase
      * @return MockObject|TestSubject
      * @throws Exception
      */
-    protected function createSubject(array $dependencies, ?array $methods = null)
+    protected function createSubject(array $dependencies, $methods = null)
     {
         return $this->createMockBuilder(TestSubject::class, $methods, $dependencies)
             ->getMock();
@@ -45,7 +45,7 @@ class SitesTest extends TestCase
      *
      * @throws Exception If problem testing.
      */
-    public function testGet(): void
+    public function testGet()
     {
         {
             $siteId = rand(1, 9);
@@ -73,7 +73,7 @@ class SitesTest extends TestCase
      *
      * @throws Exception If problem testing.
      */
-    public function testGetNotFound(): void
+    public function testGetNotFound()
     {
         {
             $siteId = rand(1, 9);
@@ -95,7 +95,7 @@ class SitesTest extends TestCase
      *
      * @throws Exception If problem testing.
      */
-    public function testHasFalse(): void
+    public function testHasFalse()
     {
         {
             $siteId = rand(1, 9);
@@ -126,7 +126,7 @@ class SitesTest extends TestCase
      *
      * @throws Exception If problem testing.
      */
-    public function testHasTrue(): void
+    public function testHasTrue()
     {
         {
             $siteId = rand(1, 9);

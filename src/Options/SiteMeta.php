@@ -156,7 +156,7 @@ class SiteMeta implements WritableContainerInterface
      * @throws RuntimeException If problem setting.
      * @throws Throwable If problem running.
      */
-    protected function _setMeta(string $name, $value): void
+    protected function _setMeta(string $name, $value)
     {
         $siteId = $this->siteId;
 

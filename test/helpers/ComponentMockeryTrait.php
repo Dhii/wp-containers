@@ -27,7 +27,7 @@ trait ComponentMockeryTrait
      *
      * @throws Exception If problem creating.
      */
-    protected function createMockBuilder(string $className, ?array $methods = [], ?array $dependencies = null)
+    protected function createMockBuilder(string $className, $methods = [], $dependencies = null)
     {
         $builder = $this->getMockBuilder($className);
 
@@ -85,9 +85,9 @@ PHP;
      */
     protected function createNotFoundException(
         string $message,
-        ?Throwable $previous = null,
-        ?ContainerInterface $container = null,
-        ?string $dataKey = null
+        Throwable $previous = null,
+        ContainerInterface $container = null,
+        string $dataKey = null
     ) {
         $eClass = $this->createImplementingClass('Exception', [NotFoundExceptionInterface::class]);
         $e = $this->createMockBuilder(
@@ -220,7 +220,7 @@ EOL;
      *
      * @return array The array of specified length, with generated keys and values.
      */
-    public function createArray(int $length, callable $valueGenerator, ?callable $keyGenerator = null)
+    public function createArray(int $length, callable $valueGenerator, callable $keyGenerator = null)
     {
         $result = [];
         $keyGenerator = $keyGenerator ?? function (int $index) {
@@ -255,5 +255,5 @@ EOL;
      *
      * @return MockBuilder The mock builder.
      */
-    abstract function getMockBuilder($className): MockBuilder;
+    abstract function getMockBuilder($className);
 }

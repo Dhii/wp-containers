@@ -24,7 +24,7 @@ class BlogOptionsContainerTest extends TestCase
      *
      * @throws Exception If problem creating.
      */
-    protected function createSubject(array $dependencies, ?array $methods = null)
+    protected function createSubject(array $dependencies, array $methods = null)
     {
         return $this->createMockBuilder(TestSubject::class, $methods, $dependencies)
             ->getMock();

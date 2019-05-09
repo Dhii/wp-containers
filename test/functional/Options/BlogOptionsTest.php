@@ -18,13 +18,13 @@ class BlogOptionsTest extends TestCase
 
     use ComponentMockeryTrait;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         parent::setUp();
         setUp();
     }
 
-    protected function tearDown(): void
+    protected function tearDown()
     {
         parent::tearDown();
         tearDown();
@@ -38,7 +38,7 @@ class BlogOptionsTest extends TestCase
      * @return MockObject|TestSubject The new instance.
      * @throws Exception If problem creating.
      */
-    protected function createSubject(array $dependencies, ?array $methods = null)
+    protected function createSubject(array $dependencies, array $methods = null)
     {
         return $this->createMockBuilder(TestSubject::class, $methods, $dependencies)
             ->getMock();

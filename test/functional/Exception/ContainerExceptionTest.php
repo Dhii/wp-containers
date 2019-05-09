@@ -26,7 +26,7 @@ class ContainerExceptionTest extends TestCase
      * @return MockObject|TestSubject The new instance.
      * @throws Exception If problem creating.
      */
-    protected function createSubject(array $dependencies, ?array $methods = null)
+    protected function createSubject(array $dependencies, array $methods = null)
     {
         return $this->createMockBuilder(TestSubject::class, $methods, $dependencies)
             ->getMock();
@@ -37,7 +37,7 @@ class ContainerExceptionTest extends TestCase
      *
      * @throws Exception If problem testing.
      */
-    public function testConstructorAndGetContainer(): void
+    public function testConstructorAndGetContainer()
     {
         {
             $message = uniqid('message');
