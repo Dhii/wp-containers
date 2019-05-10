@@ -26,6 +26,9 @@
     ```php
     use Dhii\Wp\Containers\Options\BlogOptions;
     use Dhii\Wp\Containers\Options\BlogOptionsContainer;
+    
+    // Set up sites container (see other example)
+    // ...
 
     // Definition
     $optionsContainer = new BlogOptionsContainer(
@@ -45,6 +48,9 @@
     ```php
     use Dhii\Wp\Containers\Options\SiteMeta;
     use Dhii\Wp\Containers\Options\SiteMetaContainer;
+    
+    // Set up sites container (see other example)
+    // ...
 
     // Definition
     $metaContainer = new SiteMetaContainer(
