@@ -18,13 +18,15 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^7.2.0 | ^8.0",
-        "psr/container": "^1.0"
+        "php": "^7.0 | ^8.0",
+        "psr/container": "^1.0",
+        "dhii/data-container-interface": "^0.2.1-alpha1"
     },
     "require-dev": {
         "slevomat/coding-standard": "~4.0",
-        "phpunit/phpunit": "^8",
-        "gmazzap/andrew": "^1.1"
+        "phpunit/phpunit": "^6",
+        "gmazzap/andrew": "^1.1",
+        "brain/monkey": "^2"
     },
     "autoload": {
         "psr-4": {
