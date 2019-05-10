@@ -40,7 +40,7 @@
     $myOption = $blog3Options->get('my_option');
     ```
     
-- Retrieve meta options by key:
+- Retrieve site meta by key:
 
     ```php
     use Dhii\Wp\Containers\Options\SiteMeta;
