@@ -55,7 +55,7 @@
     );
     
     // Usage
-    $blog4Meta = $metaContainer->get(3);
+    $blog4Meta = $metaContainer->get(4);
     $myMeta = $blog4Meta->get('my_meta');
     ```
 
