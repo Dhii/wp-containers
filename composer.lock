@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a78e8e75eab4e85ec4d80f44c783e58",
+    "content-hash": "f4983450743fdd5b695b4e134468c813",
     "packages": [
         {
             "name": "dhii/data-container-interface",
-            "version": "dev-task/add-set-capable-container",
+            "version": "v0.2.1-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Dhii/data-container-interface.git",
-                "reference": "ea83f3fe05ced3ae0638bac1cb2bd259a9abbf3f"
+                "reference": "6be46e427184b95785d9dd563d6acf2e0700cc31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Dhii/data-container-interface/zipball/ea83f3fe05ced3ae0638bac1cb2bd259a9abbf3f",
-                "reference": "ea83f3fe05ced3ae0638bac1cb2bd259a9abbf3f",
+                "url": "https://api.github.com/repos/Dhii/data-container-interface/zipball/6be46e427184b95785d9dd563d6acf2e0700cc31",
+                "reference": "6be46e427184b95785d9dd563d6acf2e0700cc31",
                 "shasum": ""
             },
             "require": {
@@ -58,7 +58,7 @@
                 }
             ],
             "description": "Interfaces for working with data containers",
-            "time": "2019-05-08T17:45:52+00:00"
+            "time": "2019-05-10T14:17:29+00:00"
         },
         {
             "name": "dhii/exception-interface",
@@ -2126,18 +2126,9 @@
             "time": "2018-12-25T11:19:39+00:00"
         }
     ],
-    "aliases": [
-        {
-            "alias": "0.2-alpha4",
-            "alias_normalized": "0.2.0.0-alpha4",
-            "version": "dev-task/add-set-capable-container",
-            "package": "dhii/data-container-interface"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "dhii/data-container-interface": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
