@@ -26,9 +26,11 @@ assert($site2 instanceof WP_Site);
 ```php
 use Dhii\Wp\Containers\Options\BlogOptions;
 use Dhii\Wp\Containers\Options\BlogOptionsContainer;
+use Dhii\Wp\Containers\Sites;
 
 // Set up sites container (see other example)
 // ...
+assert($sites instanceof WP_Site);
 
 // Definition
 $optionsContainer = new BlogOptionsContainer(
@@ -48,9 +50,11 @@ $myOption = $blog3Options->get('my_option');
 ```php
 use Dhii\Wp\Containers\Options\SiteMeta;
 use Dhii\Wp\Containers\Options\SiteMetaContainer;
+use Dhii\Wp\Containers\Sites;
 
 // Set up sites container (see other example)
 // ...
+assert($sites instanceof WP_Site);
 
 // Definition
 $metaContainer = new SiteMetaContainer(
@@ -73,6 +77,7 @@ use Psr\Container\NotFoundExceptionInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Dhii\Data\Container\Exception\NotFoundExceptionInterface as ExtendedNotFoundException;
 
+// Set up options (see previous examples)
 // ...
 assert($options instanceof BlogOptions);
 
