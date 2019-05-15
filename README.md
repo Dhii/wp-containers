@@ -86,10 +86,6 @@ try {
 }
 ```
 
-### Wraps WP
-The containers do not re-create the functionality to go around WordPress. Instead, they wrap native WordPress functionality,
-so you can be sure that everything is done in the same way, all the hooks, such as `option_*` or `pre_update_option_*`, still work.
-
 This solves the problem of inconsistent behaviour of native WordPress option-related funtions:
 
 * retrieved options returned `false` for both a `false` value and when not found, making them hard to distinguish;
@@ -102,6 +98,11 @@ extended to allow retrieval of the key that was not found (when applicable) and 
 the operation. This is optional, however, and depending simply on the PSR-11 exceptions will work as expected.
 
 The `set()`, `has()`, and `delete()` also throw [`ContainerExceptionInterface`][] on failure.
+
+### Wraps WP
+
+The containers do not re-create the functionality to go around WordPress. Instead, they wrap native WordPress functionality,
+so you can be sure that everything is done in the same way, all the hooks, such as `option_*` or `pre_update_option_*`, still work.
 
 [Dhii]: https://github.com/Dhii/dhii
 [PSR-11]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-11-container.md
