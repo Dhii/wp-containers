@@ -12,14 +12,14 @@
 ## Features
 ### Retrieve sites by key
 
-    ```php
-    use Dhii\Wp\Containers\Sites;
-    use WP_Site;
-  
-    $sites = new Sites();
-    $site2 = $sites->get(2);
-    assert($site2 instanceof WP_Site);
-    ```
+```php
+use Dhii\Wp\Containers\Sites;
+use WP_Site;
+
+$sites = new Sites();
+$site2 = $sites->get(2);
+assert($site2 instanceof WP_Site);
+```
 
 ### Retrieve site options by key
 
