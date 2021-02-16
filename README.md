@@ -1,4 +1,6 @@
-# Dhii - WP Containers
+# [Archived] Dhii - WP Containers
+
+Please check Packagist for alternatives
 
 [![Build Status](https://travis-ci.org/Dhii/wp-containers.svg?branch=develop)](https://travis-ci.org/Dhii/wp-containers)
 [![Code Climate](https://codeclimate.com/github/Dhii/wp-containers/badges/gpa.svg)](https://codeclimate.com/github/Dhii/wp-containers)
